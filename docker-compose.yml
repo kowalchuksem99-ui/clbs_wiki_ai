@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: rag_app
+    ports:
+      - "5010:5010"
+    env_file:
+      - .env.hot
+    volumes:
+      - ./data:/data
+      - ./models:/models
+    restart: unless-stopped
